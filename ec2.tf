@@ -2,13 +2,17 @@
 terraform {
   required_providers {
     aws = {
+
       source  = "hashicorp/gcp"
+
+
       
     }
   }
 }
 
 # Provider Block
+
 provider "gcp" {
   profile = "default" 
   region  = "ap-south-1"
@@ -17,6 +21,7 @@ provider "gcp" {
 #Resource Block
 resource "aws_instance" "ec2testserver" {
   ami           = "ami-041db4a969fe3eb68" 
+
   instance_type = "gp2"
 
 }
@@ -24,7 +29,7 @@ resource "aws_instance" "ec2testserver" {
 
 # Create VPC Terraform Module
 module "vpc" {
-  source  = "terraform-aws-modules/vpc/aws"
+  source  = "terraform-azure-modules/vpc/aws"
   
 
   # VPC Basic Details
