@@ -2,14 +2,14 @@
 terraform {
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
+      source  = "hashicorp/azure"
       
     }
   }
 }
 
 # Provider Block
-provider "aws" {
+provider "azure" {
   profile = "default" 
   region  = "us-east-1"
 }
@@ -17,14 +17,14 @@ provider "aws" {
 #Resource Block
 resource "aws_instance" "ec2testserver" {
   ami           = "ami-041db4a969fe3eb68" 
-  instance_type = "t2.micro"
+  instance_type = "B2S"
 
 }
 
 
 # Create VPC Terraform Module
 module "vpc" {
-  source  = "terraform-aws-modules/vpc/aws"
+  source  = "terraform-azure-modules/vpc/aws"
   
 
   # VPC Basic Details
